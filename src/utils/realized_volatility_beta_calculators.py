@@ -133,7 +133,8 @@ def compute_rolling_realized_correlation_against_benchmark(
     window = rolling_window_days * price_frequency_scalar
 
     rolling_correlation = target_realized_volatility.rolling(window=window).corr(
-        benchmark_realized_volatility, pairwise=True,
+        benchmark_realized_volatility,
+        pairwise=True,
     )
     rolling_correlation = rolling_correlation.dropna()
     return rolling_correlation
